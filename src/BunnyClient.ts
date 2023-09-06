@@ -37,6 +37,7 @@ class _Client {
     baseURL: "https://storage.bunnycdn.com/",
     timeout: 2000000000,
     maxContentLength: Number.POSITIVE_INFINITY,
+    responseType: 'arraybuffer',
     headers: {
       'AccessKey': Config.getApiKey(k, "storages"),
       'XX-CLIENT': "DKFN/bunnycdn-cli 0.2.0"
@@ -140,7 +141,7 @@ class _Client {
 
       const fd = fs.openSync(pathToDownload, "w");
       console.log(" ⌛ [IO] " + qString(counterRef) + "    "  + pathToDownload + " => " + ( size || " ? " ));
-      fs.writeFileSync(fd, response.data);
+      fs.writeFileSync(fd, response.data, 'binary');
       fs.closeSync(fd);
       if (counterRef) {
         counterRef.ok = counterRef.ok + 1;

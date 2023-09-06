@@ -23,7 +23,7 @@ $ npm install -g bnycdn
 $ bnycdn COMMAND
 running command...
 $ bnycdn (-v|--version|version)
-bnycdn/0.3.0 linux-x64 node-v18.16.0
+bnycdn/0.3.0 darwin-arm64 node-v16.15.1
 $ bnycdn --help [COMMAND]
 USAGE
   $ bnycdn COMMAND
