@@ -25,10 +25,11 @@ class _Client {
   static FileUpload = (k: string ,fileStream: Buffer, url: string) => axios.put(url, fileStream, {
     baseURL: "https://storage.bunnycdn.com/",
     timeout: 60000,
-    data: fileStream.toString(),
+    data: fileStream,
     maxContentLength: Number.POSITIVE_INFINITY,
-    maxBodyLength: Number.POSITIVE_INFINITY,
+    maxBodyLength: Infinity,
     headers: {
+      'content-type': 'application/octet-stream',
       'AccessKey': Config.getApiKey(k, "storages"),
       'XX-CLIENT': "DKFN/bunnycdn-cli 0.2.0"
     },
